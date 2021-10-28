@@ -9,12 +9,12 @@
 
 namespace Session5Api.Base
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
     public partial class Wells
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Wells()
         {
             this.WellLayers = new HashSet<WellLayers>();
@@ -26,8 +26,10 @@ namespace Session5Api.Base
         public long GasOilDepth { get; set; }
         public long Capacity { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        [JsonIgnore]
         public virtual ICollection<WellLayers> WellLayers { get; set; }
+        [JsonIgnore]
         public virtual WellTypes WellTypes { get; set; }
     }
 }

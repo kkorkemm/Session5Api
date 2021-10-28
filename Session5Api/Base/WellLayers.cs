@@ -9,9 +9,10 @@
 
 namespace Session5Api.Base
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class WellLayers
     {
         public long ID { get; set; }
@@ -19,8 +20,11 @@ namespace Session5Api.Base
         public long RockTypeID { get; set; }
         public long StartPoint { get; set; }
         public long EndPoint { get; set; }
-    
+        
+        [JsonIgnore] 
         public virtual RockTypes RockTypes { get; set; }
+        [JsonIgnore]
         public virtual Wells Wells { get; set; }
     }
 }
+  
